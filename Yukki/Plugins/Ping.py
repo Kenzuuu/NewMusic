@@ -9,7 +9,7 @@ from pyrogram.types import Message
 from Yukki import BOT_USERNAME, MUSIC_BOT_NAME, app, boottime
 from Yukki.Utilities.ping import get_readable_time
 
-__MODULE__ = "Ping"
+__MODULE__ = "Pingmusic"
 __HELP__ = """
 
 /ping - Check if Bot is alive or not.
@@ -29,7 +29,7 @@ Disk: {disk}%"""
     return stats
 
 
-@app.on_message(filters.command(["ping", f"ping@{BOT_USERNAME}"]))
+@app.on_message(filters.command(["pingmusic", f"ping@{BOT_USERNAME}"]))
 async def ping(_, message):
     start = datetime.now()
     response = await message.reply_photo(
