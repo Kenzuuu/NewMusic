@@ -26,11 +26,11 @@ from Yukki.Inline import stats1, stats2, stats3, stats4, stats5, stats6, stats7
 from Yukki.Plugins import ALL_MODULES
 from Yukki.Utilities.ping import get_readable_time
 
-__MODULE__ = "Stats"
+__MODULE__ = "Statsmusic"
 __HELP__ = """
 
 
-/stats
+/statsmusic
 - Check the Stats of Bot.
 - Gets the stat of MongoDb , Assistant, System etc
 """
@@ -49,7 +49,7 @@ async def bot_sys_stats():
     return stats
 
 
-@app.on_message(filters.command("stats") & ~filters.edited)
+@app.on_message(filters.command("statsmusic") & ~filters.edited)
 async def gstats(_, message):
     start = datetime.now()
     try:
