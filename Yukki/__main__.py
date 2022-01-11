@@ -67,8 +67,8 @@ async def initiate_bot():
             ):
                 imported_module.__MODULE__ = imported_module.__MODULE__
                 if (
-                    hasattr(imported_module, "__HELP__")
-                    and imported_module.__HELP__
+                    hasattr(imported_module, "__HELPS__")
+                    and imported_module.__HELPS__
                 ):
                     HELPABLE[
                         imported_module.__MODULE__.lower()
@@ -370,7 +370,7 @@ async def start_command(_, message):
 
 async def help_parser(name, keyboard=None):
     if not keyboard:
-        keyboard = InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "help"))
+        keyboard = InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "helps"))
     return (
         """Hello {first_name},
 
@@ -386,11 +386,11 @@ All commands can be used with: *
 
 @app.on_callback_query(filters.regex("shikhar"))
 async def shikhar(_, CallbackQuery):
-    text, keyboard = await help_parser(CallbackQuery.from_user.mention)
+    text, keyboard = await helps_parser(CallbackQuery.from_user.mention)
     await CallbackQuery.message.edit(text, reply_markup=keyboard)
 
 
-@app.on_callback_query(filters.regex(r"help_(.*?)"))
+@app.on_callback_query(filters.regex(r"helps_(.*?)"))
 async def help_button(client, query):
     home_match = re.match(r"help_home\((.+?)\)", query.data)
     mod_match = re.match(r"help_module\((.+?)\)", query.data)
@@ -410,7 +410,7 @@ All commands can be used with: *
             "{} **{}**:\n".format(
                 "Here is the help for", HELPABLE[module].__MODULE__
             )
-            + HELPABLE[module].__HELP__
+            + HELPABLE[module].__HELPS__
         )
         key = InlineKeyboardMarkup(
             [
@@ -443,7 +443,7 @@ All commands can be used with: *
         await query.message.edit(
             text=top_text,
             reply_markup=InlineKeyboardMarkup(
-                paginate_modules(curr_page - 1, HELPABLE, "help")
+                paginate_modules(curr_page - 1, HELPABLE, "helps")
             ),
             disable_web_page_preview=True,
         )
@@ -453,7 +453,7 @@ All commands can be used with: *
         await query.message.edit(
             text=top_text,
             reply_markup=InlineKeyboardMarkup(
-                paginate_modules(next_page + 1, HELPABLE, "help")
+                paginate_modules(next_page + 1, HELPABLE, "helps")
             ),
             disable_web_page_preview=True,
         )
@@ -462,7 +462,7 @@ All commands can be used with: *
         await query.message.edit(
             text=top_text,
             reply_markup=InlineKeyboardMarkup(
-                paginate_modules(0, HELPABLE, "help")
+                paginate_modules(0, HELPABLE, "helps")
             ),
             disable_web_page_preview=True,
         )
