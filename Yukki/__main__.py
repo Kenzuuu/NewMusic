@@ -236,13 +236,13 @@ A Telegram Music+Video Streaming bot with some useful features.
 All commands can be used with: / """
 
 
-@app.on_message(filters.command("help") & filters.private)
+@app.on_message(filters.command("helpmusic") & filters.private)
 async def help_command(_, message):
     text, keyboard = await help_parser(message.from_user.mention)
     await app.send_message(message.chat.id, text, reply_markup=keyboard)
 
 
-@app.on_message(filters.command("start") & filters.private)
+@app.on_message(filters.command("startmusic") & filters.private)
 async def start_command(_, message):
     if len(message.text.split()) > 1:
         name = (message.text.split(None, 1)[1]).lower()
@@ -289,7 +289,7 @@ async def start_command(_, message):
                     LOG_GROUP_ID,
                     f"{message.from_user.mention} has just started bot to check <code>SUDOLIST</code>\n\n**USER ID:** {sender_id}\n**USER NAME:** {sender_name}",
                 )
-        if name == "help":
+        if name == "helpmusic":
             text, keyboard = await help_parser(message.from_user.mention)
             await message.delete()
             return await app.send_text(
@@ -377,7 +377,7 @@ async def help_parser(name, keyboard=None):
 
 Click on the buttons for more information.
 
-All commands can be used with: /
+All commands can be used with: *
 """.format(
             first_name=name
         ),
@@ -403,7 +403,7 @@ async def help_button(client, query):
 
 Click on the buttons for more information.
 
-All commands can be used with: /
+All commands can be used with: *
  """
     if mod_match:
         module = mod_match.group(1)
