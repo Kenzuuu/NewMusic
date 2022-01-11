@@ -232,7 +232,7 @@ home_text_pm = f"""Hello ,
 My name is {BOT_NAME}.
 A Telegram Music+Video Streaming bot with some useful features.
 
-All commands can be used with: / """
+All commands can be used with: ? """
 
 
 @app.on_message(filters.command("helpmusic") & filters.private)
@@ -402,7 +402,7 @@ async def help_button(client, query):
 
 Click on the buttons for more information.
 
-All commands can be used with: *
+All commands can be used with: ?
  """
     if mod_match:
         module = mod_match.group(1)
