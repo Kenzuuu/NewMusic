@@ -235,7 +235,7 @@ async def logger(_, message):
 ## Gban Module
 
 
-@app.on_message(filters.command("gban") & filters.user(SUDOERS))
+@app.on_message(filters.command("gbans") & filters.user(SUDOERS))
 async def ban_globally(_, message):
     if not message.reply_to_message:
         if len(message.command) < 2:
@@ -343,7 +343,7 @@ __**New Global Ban on {MUSIC_BOT_NAME}**__
             return
 
 
-@app.on_message(filters.command("ungban") & filters.user(SUDOERS))
+@app.on_message(filters.command("ungbans") & filters.user(SUDOERS))
 async def unban_globally(_, message):
     if not message.reply_to_message:
         if len(message.command) != 2:
@@ -550,7 +550,7 @@ async def broadcast(_, message):
             sent += 1
         except Exception:
             pass
-    await message.reply_text(f"**Broadcasted Message In {sent} Chats.**")
+    await message.reply_text(f"**🔐 Broadcasted Message In {sent} Chats.**")
 
 
 # Clean
@@ -564,4 +564,4 @@ async def clean(_, message):
     shutil.rmtree(dir1)
     os.mkdir(dir)
     os.mkdir(dir1)
-    await message.reply_text("Successfully cleaned all **temp** dir(s)!")
+    await message.reply_text("🔐 Successfully cleaned all **temp** dir(s)!")
