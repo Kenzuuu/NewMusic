@@ -15,7 +15,7 @@ from Yukki.Utilities.youtube import get_yt_info_query, get_yt_info_query_slider
 
 loop = asyncio.get_event_loop()
 
-__MODULE__ = "Song"
+__MODULE__ = "Songs"
 __HELP__ = """
 
 
@@ -28,7 +28,7 @@ __HELP__ = """
 
 
 @app.on_message(
-    filters.command(["song", f"song@{BOT_USERNAME}"])
+    filters.command(["songs", f"song@{BOT_USERNAME}"])
 )
 @PermissionCheck
 async def play(_, message: Message):
