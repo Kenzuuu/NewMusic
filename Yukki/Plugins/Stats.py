@@ -63,9 +63,9 @@ async def gstats(_, message):
     end = datetime.now()
     resp = (end - start).microseconds / 1000
     smex = f"""
-[•]<u>**General Stats**</u>
+[•]<u>**STATS NARUMI MUSIC**</u>
 
-Ping: `⚡{resp} ms`
+Ping: `🔐{resp} ms`
 {uptime}
     """
     await response.edit_text(smex, reply_markup=stats1)
