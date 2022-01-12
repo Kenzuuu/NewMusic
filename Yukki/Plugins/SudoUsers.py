@@ -20,7 +20,7 @@ __MODULE__ = "SudoUsers"
 __HELP__ = """
 
 
-/sudolist 
+/sudolists 
     Check the sudo user list of Bot. 
 
 
@@ -28,10 +28,10 @@ __HELP__ = """
 Only for Sudo Users. 
 
 
-/addsudo [Username or Reply to a user]
+/addsudos [Username or Reply to a user]
 - To Add A User In Bot's Sudo Users.
 
-/delsudo [Username or Reply to a user]
+/delsudos [Username or Reply to a user]
 - To Remove A User from Bot's Sudo Users.
 
 /maintenance [enable / disable]
@@ -46,7 +46,7 @@ Only for Sudo Users.
 # Add Sudo Users!
 
 
-@app.on_message(filters.command("addsudo") & filters.user(OWNER_ID))
+@app.on_message(filters.command("addsudos") & filters.user(OWNER_ID))
 async def useradd(_, message: Message):
     if not message.reply_to_message:
         if len(message.command) != 2:
@@ -86,7 +86,7 @@ async def useradd(_, message: Message):
     return
 
 
-@app.on_message(filters.command("delsudo") & filters.user(OWNER_ID))
+@app.on_message(filters.command("delsudos") & filters.user(OWNER_ID))
 async def userdel(_, message: Message):
     if not message.reply_to_message:
         if len(message.command) != 2:
@@ -125,7 +125,7 @@ async def userdel(_, message: Message):
     await message.reply_text(f"Something wrong happened.")
 
 
-@app.on_message(filters.command("sudolist"))
+@app.on_message(filters.command("sudolists"))
 async def sudoers_list(_, message: Message):
     sudoers = await get_sudoers()
     text = "⭐️<u> **Owners:**</u>\n"
