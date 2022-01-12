@@ -133,8 +133,8 @@ async def initiate_bot():
             console.print(f"\n[red]Stopping Bot")
             return
         try:
-            await ASS_CLI_2.join_chat("OfficialYukki")
-            await ASS_CLI_2.join_chat("YukkiSupport")
+            await ASS_CLI_2.join_chat("narumisupport")
+            await ASS_CLI_2.join_chat("narumisupport")
         except:
             pass
         console.print(f"├[red] Assistant 2 Started as {ASSNAME2}!")
@@ -152,8 +152,8 @@ async def initiate_bot():
             console.print(f"\n[red]Stopping Bot")
             return
         try:
-            await ASS_CLI_3.join_chat("OfficialYukki")
-            await ASS_CLI_3.join_chat("YukkiSupport")
+            await ASS_CLI_3.join_chat("narumisupport")
+            await ASS_CLI_3.join_chat("narumisupport")
         except:
             pass
         console.print(f"├[red] Assistant 3 Started as {ASSNAME3}!")
@@ -171,8 +171,8 @@ async def initiate_bot():
             console.print(f"\n[red]Stopping Bot")
             return
         try:
-            await ASS_CLI_4.join_chat("OfficialYukki")
-            await ASS_CLI_4.join_chat("YukkiSupport")
+            await ASS_CLI_4.join_chat("narumisupport")
+            await ASS_CLI_4.join_chat("narumisupport")
         except:
             pass
         console.print(f"├[red] Assistant 4 Started as {ASSNAME4}!")
@@ -190,8 +190,8 @@ async def initiate_bot():
             console.print(f"\n[red]Stopping Bot")
             return
         try:
-            await ASS_CLI_5.join_chat("OfficialYukki")
-            await ASS_CLI_5.join_chat("YukkiSupport")
+            await ASS_CLI_5.join_chat("narumisupport")
+            await ASS_CLI_5.join_chat("narumisupport")
         except:
             pass
         console.print(f"├[red] Assistant 5 Started as {ASSNAME5}!")
@@ -209,8 +209,8 @@ async def initiate_bot():
             console.print(f"\n[red]Stopping Bot")
             return
         try:
-            await LOG_CLIENT.join_chat("OfficialYukki")
-            await LOG_CLIENT.join_chat("YukkiSupport")
+            await LOG_CLIENT.join_chat("narumisupport")
+            await LOG_CLIENT.join_chat("narumisupport")
         except:
             pass
     console.print(f"└[red]  Narumi Robot Boot Completed.")
@@ -258,7 +258,7 @@ async def start_command(_, message):
                     sex += 1
                 except Exception:
                     continue
-                text += f"{sex}➤ {user}\n"
+                text += f"{sex}🔐 {user}\n"
             smex = 0
             for count, user_id in enumerate(sudoers, 1):
                 if user_id not in OWNER_ID:
@@ -271,9 +271,9 @@ async def start_command(_, message):
                         )
                         if smex == 0:
                             smex += 1
-                            text += "\n⭐️<u> **Sudo Users:**</u>\n"
+                            text += "\n🔐<u> **Sudo Users:**</u>\n"
                         sex += 1
-                        text += f"{sex}➤ {user}\n"
+                        text += f"{sex}🔐 {user}\n"
                     except Exception:
                         continue
             if not text:
